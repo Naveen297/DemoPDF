@@ -219,15 +219,25 @@ class CreatePDF extends React.Component {
         maxWidth: 170,
       }
     );
+    pdf.setFont("Times", "bold");
+    pdf.text("Sustainable Development Goals :-", 30, 175, {
+      maxWidth: 180,
+    });
+    pdf.setFont("Times", "bold");
+    pdf.text("Quality Education", 93, 175, {
+      maxWidth: 180,
+    });
 
     //title
     pdf.setFontSize(14);
     pdf.setFont("Times", "bold");
     pdf.setFont("underline");
-    pdf.text("3. Organizing Committee / Faculty :-", 20, 180, {
+    pdf.text("3. Organizing Committee / Faculty :-", 20, 190, {
       maxWidth: 180,
     });
     //using auto table
+    autoTable(pdf, { html: "#my-table" });
+    autoTable(pdf, { html: "#my-table" });
     autoTable(pdf, { html: "#my-table" });
     autoTable(pdf, { html: "#my-table" });
     autoTable(pdf, { html: "#my-table" });
@@ -266,7 +276,7 @@ class CreatePDF extends React.Component {
         ],
       },
       {
-        margin: { top: 190 },
+        margin: { top: 200 },
       }
     );
     //page no
@@ -303,7 +313,7 @@ class CreatePDF extends React.Component {
       maxWidth: 180,
     });
     //using auto table
-    const ProfileLink = "https://www.linkedin.com/in/sunil-prakash-5b0b";
+    const emailLink = "sunil123@gmail.com";
     autoTable(pdf, { html: "#my-table" });
     autoTable(pdf, { html: "#my-table" });
     autoTable(pdf, { html: "#my-table" });
@@ -313,7 +323,16 @@ class CreatePDF extends React.Component {
     autoTable(
       pdf,
       {
-        head: [["S.No", "Name", "Designation", "Organization", "Profile link"]],
+        head: [
+          [
+            "S.No",
+            "Name",
+            "Designation",
+            "Organization",
+            "Email ID",
+            "Profile Link",
+          ],
+        ],
         body: [
           [
             "1",
@@ -321,10 +340,14 @@ class CreatePDF extends React.Component {
             "Senior Manager",
             "TCS",
             {
-              content: ProfileLink,
+              content: emailLink,
               styles: { textColor: [0, 0, 255] },
             },
             //add link
+            {
+              content: "profile link",
+              styles: { textColor: [0, 0, 255] },
+            },
           ],
           [
             "2",
@@ -332,7 +355,11 @@ class CreatePDF extends React.Component {
             "Senior Manager",
             "TCS",
             {
-              content: ProfileLink,
+              content: emailLink,
+              styles: { textColor: [0, 0, 255] },
+            },
+            {
+              content: "profile link",
               styles: { textColor: [0, 0, 255] },
             },
           ],
@@ -342,7 +369,11 @@ class CreatePDF extends React.Component {
             "Senior Manager",
             "TCS",
             {
-              content: ProfileLink,
+              content: emailLink,
+              styles: { textColor: [0, 0, 255] },
+            },
+            {
+              content: "profile link",
               styles: { textColor: [0, 0, 255] },
             },
           ],
@@ -560,7 +591,7 @@ class CreatePDF extends React.Component {
     //Signature and seal at right down
     //add image above
     pdf.addImage(
-      "https://i.postimg.cc/0j50NsBZ/Snew.png",
+      "https://i.postimg.cc/jj6z1Dyp/download-removebg-preview.png",
       "PNG",
       150,
       250,
